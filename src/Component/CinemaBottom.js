@@ -3,18 +3,20 @@ import {Container, Button, Grid} from 'semantic-ui-react'
 
 class CinemaBottom extends Component {
     render (){
-        const {cinema, time, date, price} = this.props;
+        const {cinema, time} = this.props;
+        console.log(time);
         return(
                 <Grid style={style.container}>
                         <Grid.Row>
                             <Grid.Column>
-                                <p style={style.name}>Test Dulu{cinema}</p>
+                                <p style={style.name}>{cinema}</p>
                             </Grid.Column>
                         </Grid.Row>
 
                         <Grid.Row>
                             <Grid.Column>
-                            <Button>10:00{time}</Button>
+                            <p>{time}</p>
+                            
                             </Grid.Column>
                         </Grid.Row>
                 </Grid>

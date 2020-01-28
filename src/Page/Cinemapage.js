@@ -8,19 +8,45 @@ import Navmenu from '../Component/Navmenu';
 import CinemaTop from '../Component/CinemaTop';
 import CinemaBottom from '../Component/CinemaBottom';
 
+import {getMovieByID} from '../Redux/_actions/ActionMovie';
+import {getAllCinema} from '../Redux/_actions/ActionCinema'
+import {connect} from 'react-redux'; 
+
 
 class Cinemapage extends Component {
-   
+  
+  componentDidMount(){
+    const {id} = this.props.match.params;
+    this.props.dispatch(getMovieByID(id));
+    this.props.dispatch(getAllCinema());
+    console.log(id);
+    }
     
     render(){
+      const movie = this.props.MovieData;
+      const cinemaData = this.props.CinemaData;
         return(
                 <div className='cinema-container' style={style.container}>
                 <Container fluid style={style.content}>
                 <Header/>
                 <Navmenu/>
                 <Container>
-                  <CinemaTop/>
-                  <CinemaBottom/> 
+                {movie.map(Items => {
+                    return(
+                    <CinemaTop
+                        image={Items.image}
+                        title={Items.title}
+                        duration={Items.duration}
+                        />
+                    )
+                })}
+                {cinemaData.map(Items =>
+                    <CinemaBottom
+                        cinema={Items.name}
+                        time={Items.Halls.time}
+                        />
+                )};
+                        <CinemaBottom/> 
                 </Container>
                 <Footer/>
                 </Container>
@@ -28,8 +54,13 @@ class Cinemapage extends Component {
         );
     }
 }
+//state
+const mapStatetoProps = state => ({
+  MovieData: state.ReducerMovie.movieid,
+  CinemaData: state.ReducerCinema.cinemas
+})
 
-export default Cinemapage;
+export default connect(mapStatetoProps)(Cinemapage);
 
 const style={
     container:{

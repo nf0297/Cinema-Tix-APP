@@ -21,7 +21,7 @@ class App extends Component {
         <Route path="/Nav" component={Navmenu}/>
         <Route path="/movie/:id/data" component={Moviepage}/>
         <Route path="/upcoming/:id/data" component={Upcomingpage}/>
-        <Route path="/movie/cinema" component={Cinemapage}/>
+        <Route path="/movie/:id/cinema" component={Cinemapage}/>
       </Router>  
     )
   }

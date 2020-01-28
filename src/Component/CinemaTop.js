@@ -12,8 +12,8 @@ class CinemaTop extends Component {
                     </Grid.Column>
 
                     <Grid.Column>
-                        <p>Judul</p>
-                        <p><Icon name='clock'/>100menit</p>
+                        <p style={style.title}>{title}</p>
+                        <p><Icon name='clock'/>{duration} minutes</p>
                     </Grid.Column>
                 </Grid>
             </div>
@@ -33,5 +33,9 @@ const style={
     image:{
         width:'100%',
         height:'35vh'
+    },
+    title: {
+        fontSize:'20px',
+        fontWeight:'bold'
     }
 }

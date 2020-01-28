@@ -33,6 +33,7 @@ class Moviepage extends Component {
                         genre={Items.Genre.name}
                         rating={Items.AgeRating.initial}
                         meaning={Items.AgeRating.meaning}
+                        link={`../../movie/`+Items.id+`/cinema`}
                         />
                     )
                 })}

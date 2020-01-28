@@ -6,7 +6,7 @@ import Cinemapage from '../Page/Cinemapage';
 
 class BookContent extends Component {
     render(){
-        const {image, title, rating, genre, meaning} = this.props;
+        const {image, title, rating, genre, meaning, link} = this.props;
         return(
             <div>
                 <Grid divided columns={2}>
@@ -15,7 +15,7 @@ class BookContent extends Component {
                         <Image src={this.props.image} style={style.image}/>
                         <Button
                             as={Link}
-                            to='../../movie/cinema'
+                            to={link}
                             basic
                             inverted
                             fluid
